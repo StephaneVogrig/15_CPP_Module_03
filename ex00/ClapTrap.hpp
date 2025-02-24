@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:26:59 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 16:05:11 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 17:42:22 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class ClapTrap
 {
 	public:
 
-		ClapTrap(std::string name = "");
+		ClapTrap(std::string name = "no_name");
 		ClapTrap(ClapTrap const & toCopy);
 
 		~ClapTrap(void);

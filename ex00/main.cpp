@@ -6,16 +6,21 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:26:42 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 17:31:29 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 19:01:17 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "ClapTrap.hpp"
 
-
 int main(void)
 {
+	ClapTrap tab[5];
+
+	std::cout << std::endl;
+	ClapTrap * heap = new ClapTrap("clapHeap");
+	delete heap;
+
 	ClapTrap the_best("the_best");
 
 	std::cout << std::endl;
