@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 20:43:20 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 02:30:23 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 18:15:27 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 # include "ClapTrap.hpp"
 
+#define YELLOW_BLINK "\033[5;33m"
+
 class ScavTrap : public ClapTrap
 {
 	public:
 
-		ScavTrap(void);
-		ScavTrap(std::string name);
+		ScavTrap(std::string name = "no_name");
 		ScavTrap(ScavTrap const & toCopy);
 
 		~ScavTrap(void);
