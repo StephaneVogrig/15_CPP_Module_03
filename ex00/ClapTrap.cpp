@@ -6,57 +6,57 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:28:35 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/23 17:53:59 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 17:30:47 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) :	_name(""),
-							_hit(10),
-							_energy(10),
-							_attackDamage(0)
-{
-	std::cout << CYAN "CalTrap default constructor called" RESET;
-	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
-}
+/* constructor ---------------------------------------------------------------*/
 
 ClapTrap::ClapTrap(std::string name) :	_name(name),
 										_hit(10),
 										_energy(10),
 										_attackDamage(0)
 {
-	std::cout << CYAN "CalTrap name constructor called" RESET;
+	std::cout << CYAN "CalTrap default constructor called : " RESET << _name << CYAN " is created" RESET;
 	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & toCopy)
 {
-	std::cout << CYAN "CalTrap copy constructor called" RESET;
-	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
+	std::cout << CYAN "CalTrap copy constructor called" RESET << std::endl;
 	*this = toCopy;
 }
 
+/* destructor ----------------------------------------------------------------*/
 
 ClapTrap::~ClapTrap(void)
 {
 	std::cout << BLUE "CalTrap default destructor called" RESET;
+	std::cout << " name: " << _name;
 	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
 }
 
+/* operator ------------------------------------------------------------------*/
 
 ClapTrap & ClapTrap::operator = (ClapTrap const & toAssign)
 {
-	std::cout << PURPLE "CalTrap copy assignment operator called" RESET << std::endl;
+
 	if (this == &toAssign)
 		return (*this);
 	_name = toAssign._name;
 	_hit = toAssign._hit;
 	_energy = toAssign._energy;
 	_attackDamage = toAssign._attackDamage;
+
+	std::cout << PURPLE "CalTrap copy assignment operator called" RESET;
 	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
+
 	return (*this);
 }
+
+/* public utilities ----------------------------------------------------------*/
 
 void ClapTrap::attack(const std::string& target)
 {

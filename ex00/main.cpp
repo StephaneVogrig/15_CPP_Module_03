@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:26:42 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/23 17:49:10 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 17:31:29 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,43 +16,47 @@
 
 int main(void)
 {
-	ClapTrap clap("the best claptrap");
+	ClapTrap the_best("the_best");
 
 	std::cout << std::endl;
-	clap.attack("an ennemy");
+	the_best.attack("an ennemy");
 
 	std::cout << std::endl;
-	clap.takeDamage(5);
+	the_best.takeDamage(5);
 
 	std::cout << std::endl;
-	clap.beRepaired(10);
-	clap.takeDamage(5);
+	the_best.beRepaired(10);
+	the_best.takeDamage(5);
 
 	std::cout << std::endl;
-	clap.beRepaired(1);
+	the_best.beRepaired(1);
 
 	std::cout << std::endl;
-	clap.attack("an other ennemy");
-	clap.attack("an other ennemy");
-	clap.attack("an other ennemy");
+	the_best.attack("an other ennemy");
+	the_best.attack("an other ennemy");
+	the_best.attack("an other ennemy");
 	
 	std::cout << std::endl;
-	ClapTrap copy(clap);
+	ClapTrap copy(the_best);
 
 	std::cout << std::endl;
-	clap.attack("an other ennemy");
-	clap.attack("an other ennemy");
-	clap.attack("an other ennemy");
-	clap.attack("an other ennemy");
-	clap.attack("an other ennemy");
+	the_best.attack("an other ennemy");
+	the_best.attack("an other ennemy");
+	the_best.attack("an other ennemy");
+	the_best.attack("an other ennemy");
+	the_best.attack("an other ennemy");
 
 	std::cout << std::endl;
-	clap.takeDamage(5);
+	the_best.takeDamage(5);
 
 	std::cout << std::endl;
 	copy.attack("a stranger");
 	copy.takeDamage(20);
+	copy.beRepaired(20);
+	copy.attack("a stranger");
 	
+	ClapTrap other;
+
 	std::cout << std::endl;
 
 	return (EXIT_SUCCESS);

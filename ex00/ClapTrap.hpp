@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:26:59 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/23 16:10:11 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 16:05:11 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,16 @@
 # define GREY "\033[37m"
 # define RESET "\033[0m"
 
+/*
+	default constructor :
+	https://en.cppreference.com/w/cpp/language/default_constructor
+*/
+
 class ClapTrap
 {
 	public:
 
-		ClapTrap(void);
-		ClapTrap(std::string name);
+		ClapTrap(std::string name = "");
 		ClapTrap(ClapTrap const & toCopy);
 
 		~ClapTrap(void);
