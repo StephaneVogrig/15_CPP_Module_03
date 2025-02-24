@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 20:43:20 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 18:15:27 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 19:18:33 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class ScavTrap : public ClapTrap
 		~ScavTrap(void);
 
 		ScavTrap & operator = (ScavTrap const & toAssign);
+
+		void attack(const std::string& target);
 
 		void guardGate(void);
 

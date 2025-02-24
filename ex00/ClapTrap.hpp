@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:26:59 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 17:42:22 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 20:12:26 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 	https://en.cppreference.com/w/cpp/language/default_constructor
 */
 
+typedef unsigned int t_ui;
+
 class ClapTrap
 {
 	public:
@@ -42,15 +44,15 @@ class ClapTrap
 		ClapTrap & operator = (ClapTrap const & toAssign);
 
 		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
+		void takeDamage(t_ui amount);
+		void beRepaired(t_ui amount);
 
 	private:
 
-		std::string		_name;
-		unsigned int	_hit;
-		unsigned int	_energy;
-		unsigned int	_attackDamage;
+		std::string	_name;
+		t_ui		_hit;
+		t_ui		_energy;
+		t_ui		_attackDamage;
 
 };
 

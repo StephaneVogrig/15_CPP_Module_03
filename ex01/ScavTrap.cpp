@@ -6,17 +6,14 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 20:42:47 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 18:31:32 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 19:33:26 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
 {
-	_hit = 100;
-	_energy = 50;
-	_attackDamage = 20;
 	std::cout << CYAN "ScavTrap default constructor called : " RESET << _name << CYAN " is created" RESET;
 	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
 }
@@ -45,6 +42,26 @@ ScavTrap & ScavTrap::operator = (ScavTrap const & toAssign)
 	_attackDamage = toAssign._attackDamage;
 	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
 	return (*this);
+}
+
+void ScavTrap::attack(const std::string& target)
+{
+	if (_energy == 0)
+	{
+		std::cout << RED "ScavTrap " RESET << _name << RED " can't attacks " RESET << target;
+		std::cout << RED ", it has not enough energy!" RESET << std::endl;
+		return ;
+	}
+	if (_hit == 0)
+	{
+		std::cout << RED "ScavTrap " RESET << _name << RED " can't attacks " RESET << target;
+		std::cout << RED ", it is destroy!" RESET << std::endl;
+		return ;
+	}
+	_energy--;
+	std::cout << GREY "ScavTrap " RESET << _name << GREY " attacks " RESET << target;
+	std::cout << GREY ", causing " RESET << _attackDamage << GREY " points of damage!" RESET;
+	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
 }
 
 void ScavTrap::guardGate(void)
