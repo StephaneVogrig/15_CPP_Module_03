@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:26:59 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 20:12:47 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 20:25:33 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define CYAN "\033[36m"
 # define GREY "\033[37m"
 # define RESET "\033[0m"
+# define YELLOW_BLINK "\033[5;33m"
 
 /*
 	default constructor :

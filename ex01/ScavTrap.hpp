@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 20:43:20 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 19:18:33 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 20:25:39 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define SCAFTRAP_HPP
 
 # include "ClapTrap.hpp"
-
-#define YELLOW_BLINK "\033[5;33m"
 
 class ScavTrap : public ClapTrap
 {
