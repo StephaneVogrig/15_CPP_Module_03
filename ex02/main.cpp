@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:26:42 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 20:48:36 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 21:04:19 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,57 @@ int main(void)
 	frag.attack("an other ennemy");
 	frag.attack("an other ennemy");
 	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.attack("an other ennemy");
+	frag.highFiveGuys();
 
 	std::cout << std::endl;
 	frag.takeDamage(20);
@@ -99,6 +150,7 @@ int main(void)
 	fragCopy.takeDamage(200);
 	fragCopy.beRepaired(20);
 	fragCopy.attack("a stranger");
+	fragCopy.highFiveGuys();
 	
 	std::cout << std::endl;
 	FragTrap fragOther;

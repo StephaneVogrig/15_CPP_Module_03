@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:28:35 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 20:17:43 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 21:01:48 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,13 +99,13 @@ void ClapTrap::beRepaired(t_ui amount)
 {
 	if (_energy == 0)
 	{
-		std::cout << RED "ClapTrap " RESET << _name << RED " cant't be repaired ";
+		std::cout << RED "ClapTrap " RESET << _name << RED " can't be repaired ";
 		std::cout << ", it has not enough energy!" RESET << std::endl;
 		return ;
 	}
 	if (_hit == 0)
 	{
-		std::cout << RED "ClapTrap " RESET << _name << RED " cant't be repaired ";
+		std::cout << RED "ClapTrap " RESET << _name << RED " can't be repaired ";
 		std::cout << ", it is destroy!" RESET << std::endl;
 		return ;
 	}

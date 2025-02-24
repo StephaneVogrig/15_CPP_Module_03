@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:26:42 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 18:57:05 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 21:05:38 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ int main(void)
 	scav.attack("an other ennemy");
 	scav.attack("an other ennemy");
 	scav.attack("an other ennemy");
+	scav.guardGate();
 
 	std::cout << std::endl;
 	scav.takeDamage(20);
@@ -150,6 +151,7 @@ int main(void)
 	scavCopy.takeDamage(200);
 	scavCopy.beRepaired(20);
 	scavCopy.attack("a stranger");
+	scavCopy.guardGate();
 	
 	std::cout << std::endl;
 	ScavTrap scavOther;

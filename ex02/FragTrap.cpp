@@ -6,13 +6,13 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:23:17 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 20:38:26 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 21:01:18 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 50, 20)
+FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30)
 {
 	std::cout << CYAN "FragTrap default constructor called : " RESET << _name << CYAN " is created" RESET;
 	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
@@ -46,6 +46,18 @@ FragTrap & FragTrap::operator = (FragTrap const & toAssign)
 
 void FragTrap::highFiveGuys(void)
 {
+	if (_energy == 0)
+	{
+		std::cout << RED "FragTrap " RESET << _name << RED " can't high five ";
+		std::cout << ", it has not enough energy!" RESET << std::endl;
+		return ;
+	}
+	if (_hit == 0)
+	{
+		std::cout << RED "FragTrap " RESET << _name << RED " can't high five ";
+		std::cout << ", it is destroy!" RESET << std::endl;
+		return ;
+	}
 	std::cout << YELLOW_BLINK "FragTrap " RESET;
 	std::cout << _name << YELLOW_BLINK " high five done" RESET << std::endl;
 }

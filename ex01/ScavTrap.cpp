@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 20:42:47 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 19:33:26 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/24 21:08:50 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,18 @@ void ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate(void)
 {
+	if (_energy == 0)
+	{
+		std::cout << RED "FragTrap " RESET << _name << RED " can't switch to gate keeper mode ";
+		std::cout << ", it has not enough energy!" RESET << std::endl;
+		return ;
+	}
+	if (_hit == 0)
+	{
+		std::cout << RED "FragTrap " RESET << _name << RED " can't switch to gate keeper mode ";
+		std::cout << ", it is destroy!" RESET << std::endl;
+		return ;
+	}
 	std::cout << YELLOW_BLINK "ScavTrap " RESET;
 	std::cout << _name << YELLOW_BLINK " is now in gate keeper mode" RESET << std::endl;
 }
