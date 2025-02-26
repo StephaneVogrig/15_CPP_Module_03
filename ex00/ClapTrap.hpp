@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:26:59 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 20:12:26 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/26 22:35:16 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ class ClapTrap
 
 		ClapTrap & operator = (ClapTrap const & toAssign);
 
+		std::string	getName(void) const;
+		t_ui		getHitPoint(void) const;
+		t_ui		getEnergyPoint(void) const;
+		t_ui		getAttackDamage(void) const;
+
 		void attack(const std::string& target);
 		void takeDamage(t_ui amount);
 		void beRepaired(t_ui amount);
@@ -50,10 +55,12 @@ class ClapTrap
 	private:
 
 		std::string	_name;
-		t_ui		_hit;
-		t_ui		_energy;
+		t_ui		_hitPoint;
+		t_ui		_energyPoint;
 		t_ui		_attackDamage;
 
 };
+
+std::ostream & operator << (std::ostream & os, ClapTrap const & obj);
 
 #endif
