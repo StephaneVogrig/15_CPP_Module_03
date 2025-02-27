@@ -5,59 +5,60 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 20:23:17 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 21:01:18 by svogrig          ###   ########.fr       */
+/*   Created: 2025/02/23 20:42:47 by svogrig           #+#    #+#             */
+/*   Updated: 2025/02/27 23:48:32 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
+/* constructor ---------------------------------------------------------------*/
+
 FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30)
 {
-	std::cout << CYAN "FragTrap default constructor called : " RESET << _name << CYAN " is created" RESET;
-	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
+	std::cout << CYAN "FragTrap default constructor called : " RESET;
+	std::cout << _name << CYAN " is created " RESET << *this << std::endl;
 }
 
 FragTrap::FragTrap(FragTrap const & toCopy) : ClapTrap(toCopy)
 {
-	std::cout << CYAN "FragTrap copy constructor called" RESET;
-	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
+	std::cout << CYAN "FragTrap copy constructor called" RESET << *this << std::endl;
 }
+
+/* destructor ----------------------------------------------------------------*/
 
 FragTrap::~FragTrap(void)
 {
-	std::cout << BLUE "FragTrap default destructor called" RESET;
-	std::cout << " name: " << _name;
-	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
+	std::cout << BLUE "FragTrap default destructor called" RESET << *this << std::endl;
 }
+
+/* operator ------------------------------------------------------------------*/
 
 FragTrap & FragTrap::operator = (FragTrap const & toAssign)
 {
-	std::cout << PURPLE "FragTrap copy assignment operator called" RESET << std::endl;
+	std::cout << PURPLE "FragTrap copy assignment operator called" RESET << *this << std::endl;
 	if (this == &toAssign)
 		return (*this);
-	_name = toAssign._name;
-	_hit = toAssign._hit;
-	_energy = toAssign._energy;
-	_attackDamage = toAssign._attackDamage;
-	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
+	ClapTrap::operator = (toAssign);
 	return (*this);
 }
 
+/* public utilities ----------------------------------------------------------*/
+
 void FragTrap::highFiveGuys(void)
 {
-	if (_energy == 0)
+	if (_energyPoint == 0)
 	{
 		std::cout << RED "FragTrap " RESET << _name << RED " can't high five ";
-		std::cout << ", it has not enough energy!" RESET << std::endl;
+		std::cout << ", it has not enough energy! " RESET << *this << std::endl;
 		return ;
 	}
-	if (_hit == 0)
+	if (_hitPoint == 0)
 	{
 		std::cout << RED "FragTrap " RESET << _name << RED " can't high five ";
-		std::cout << ", it is destroy!" RESET << std::endl;
+		std::cout << ", it is destroy! " RESET << *this << std::endl;
 		return ;
 	}
 	std::cout << YELLOW_BLINK "FragTrap " RESET;
-	std::cout << _name << YELLOW_BLINK " high five done" RESET << std::endl;
+	std::cout << _name << YELLOW_BLINK " high five done " RESET << *this << std::endl;
 }
