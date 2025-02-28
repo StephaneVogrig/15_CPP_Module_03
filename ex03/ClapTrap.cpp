@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:28:35 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 21:44:01 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/28 13:23:38 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,103 +19,131 @@ t_ui ClapTrap:: _initAttackDamage = 0;
 /* constructor ---------------------------------------------------------------*/
 
 ClapTrap::ClapTrap(std::string name)
-			: _name(name), _hit(_initHit), _energy(_initEnergy), _attackDamage(_initAttackDamage)
+		: _name(name), _hitPoint(_initHit), _energyPoint(_initEnergy), _attackDamage(_initAttackDamage)
 {
 	std::cout << CYAN "ClapTrap default constructor called : " RESET;
-	std::cout << _name << CYAN " is created" RESET;
-	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
-}
-
-ClapTrap::ClapTrap(std::string name, t_ui hit, t_ui energy, t_ui attackDamage)
-			: _name(name), _hit(hit), _energy(energy), _attackDamage(attackDamage)
-{
-	std::cout << CYAN "ClapTrap all param constructor called : " RESET;
-	std::cout << _name << CYAN " is created" RESET;
-	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
+	std::cout << _name << CYAN " is created " RESET << *this << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & toCopy)
 {
-	std::cout << CYAN "ClapTrap copy constructor called" RESET << std::endl;
+	std::cout << CYAN "ClapTrap copy constructor called " RESET << *this << std::endl;
 	*this = toCopy;
+}
+
+ClapTrap::ClapTrap(std::string name, t_ui hit, t_ui energy, t_ui attackDamage)
+			: _name(name), _hitPoint(hit), _energyPoint(energy), _attackDamage(attackDamage)
+{
+	std::cout << CYAN "ClapTrap all param constructor called : " RESET;
+	std::cout << _name << CYAN " is created " RESET << *this << std::endl;
 }
 
 /* destructor ----------------------------------------------------------------*/
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << BLUE "ClapTrap default destructor called" RESET;
-	std::cout << " name: " << _name;
-	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
+	std::cout << BLUE "ClapTrap default destructor called " RESET << *this << std::endl;
 }
 
 /* operator ------------------------------------------------------------------*/
 
 ClapTrap & ClapTrap::operator = (ClapTrap const & toAssign)
 {
-
+	std::cout << PURPLE "ClapTrap copy assignment operator called " RESET << *this << std::endl;
 	if (this == &toAssign)
 		return (*this);
 	_name = toAssign._name;
-	_hit = toAssign._hit;
-	_energy = toAssign._energy;
+	_hitPoint = toAssign._hitPoint;
+	_energyPoint = toAssign._energyPoint;
 	_attackDamage = toAssign._attackDamage;
-
-	std::cout << PURPLE "ClapTrap copy assignment operator called" RESET;
-	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
-
 	return (*this);
+}
+
+std::ostream & operator << (std::ostream & os, ClapTrap const & obj)
+{
+	obj.display(os);
+	return (os);
+}
+
+/* getter --------------------------------------------------------------------*/
+
+std::string ClapTrap::getName(void) const
+{
+	return (_name);
+}
+
+t_ui ClapTrap::getHitPoint(void) const
+{
+	return (_hitPoint);
+}
+
+t_ui ClapTrap::getEnergyPoint(void) const
+{
+	return (_energyPoint);
+}
+
+t_ui ClapTrap::getAttackDamage(void) const
+{
+	return (_attackDamage);
 }
 
 /* public utilities ----------------------------------------------------------*/
 
 void ClapTrap::attack(const std::string& target)
 {
-	if (_energy == 0)
+	if (_energyPoint == 0)
 	{
 		std::cout << RED "ClapTrap " RESET << _name << RED " can't attacks " RESET;
-		std::cout << target << RED ", it has not enough energy!" RESET << std::endl;
+		std::cout << target << RED ", it has not enough energy!" RESET << *this << std::endl;
 		return ;
 	}
-	if (_hit == 0)
+	if (_hitPoint == 0)
 	{
 		std::cout << RED "ClapTrap " RESET << _name << RED " can't attacks " RESET;
-		std::cout << target << RED ", it is destroy!" RESET << std::endl;
+		std::cout << target << RED ", it is destroy!" RESET << *this << std::endl;
 		return ;
 	}
-	_energy--;
+	_energyPoint--;
 	std::cout << GREY "ClapTrap " RESET << _name << GREY " attacks " RESET << target;
-	std::cout << GREY ", causing " RESET << _attackDamage << GREY " points of damage!" RESET;
-	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
+	std::cout << GREY ", causing " RESET << _attackDamage << GREY " points of damage! ";
+	std::cout << *this << std::endl;
 }
 
 void ClapTrap::takeDamage(t_ui amount)
 {
-	if (amount > _hit)
-		amount = _hit;
-	_hit -= amount;
+	if (amount > _hitPoint)
+		amount = _hitPoint;
+	_hitPoint -= amount;
 	std::cout << YELLOW "ClapTrap " RESET << _name << YELLOW " take " RESET;
-	std::cout << amount << YELLOW " damage!" RESET;
-	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
+	std::cout << amount << YELLOW " damage! " RESET << *this << std::endl;
 }
 
 void ClapTrap::beRepaired(t_ui amount)
 {
-	if (_energy == 0)
+	if (_energyPoint == 0)
 	{
-		std::cout << RED "ClapTrap " RESET << _name << RED " can't be repaired ";
-		std::cout << ", it has not enough energy!" RESET << std::endl;
+		std::cout << RED "ClapTrap " RESET << _name << RED " can't be repaired";
+		std::cout << ", it has not enough energy!" RESET << *this << std::endl;
 		return ;
 	}
-	if (_hit == 0)
+	if (_hitPoint == 0)
 	{
-		std::cout << RED "ClapTrap " RESET << _name << RED " can't be repaired ";
-		std::cout << ", it is destroy!" RESET << std::endl;
+		std::cout << RED "ClapTrap " RESET << _name << RED " can't be repaired";
+		std::cout << ", it is destroy!" RESET << *this << std::endl;
 		return ;
 	}
-	_energy--;
-	_hit += amount;
-	std::cout << GREEN "ClapTrap " RESET << _name << GREEN " be repaired with";
-	std::cout << RESET << amount << GREEN " hit points!" RESET;
-	std::cout << " (energy: " << _energy << " hit: " << _hit << ")" << std::endl;
+	_energyPoint--;
+	_hitPoint += amount;
+	std::cout << GREEN "ClapTrap " RESET << _name << GREEN " be repaired with ";
+	std::cout << RESET << amount << GREEN " hit points! " RESET << *this << std::endl;
+}
+
+/* private -------------------------------------------------------------------*/
+
+void ClapTrap::display(std::ostream & os) const
+{
+	os << _name;
+	os << YELLOW " hit:" RESET << _hitPoint;
+	os << YELLOW " energy:" RESET << _energyPoint;
+	os << YELLOW " attackDammage:" RESET << _attackDamage;
 }

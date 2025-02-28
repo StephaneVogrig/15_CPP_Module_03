@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:26:59 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 22:01:12 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/28 14:37:27 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 # define CYAN "\033[36m"
 # define GREY "\033[37m"
 # define RESET "\033[0m"
-# define GREEN_BLINK "\033[5;32m"
 # define YELLOW_BLINK "\033[5;33m"
 
 /*
@@ -39,12 +38,17 @@ class ClapTrap
 	public:
 
 		ClapTrap(std::string name = "no_name");
-		ClapTrap(std::string name, t_ui hit, t_ui energy, t_ui attackDamage);
 		ClapTrap(ClapTrap const & toCopy);
 
 		virtual ~ClapTrap(void);
 
 		ClapTrap & operator = (ClapTrap const & toAssign);
+		friend std::ostream & operator << (std::ostream & os, ClapTrap const & obj);
+
+		std::string	getName(void) const;
+		t_ui		getHitPoint(void) const;
+		t_ui		getEnergyPoint(void) const;
+		t_ui		getAttackDamage(void) const;
 
 		virtual void attack(const std::string& target);
 		void takeDamage(t_ui amount);
@@ -52,9 +56,13 @@ class ClapTrap
 
 	protected:
 
+		ClapTrap(std::string name, t_ui hit, t_ui energy, t_ui attackDamage);
+
+		virtual void display(std::ostream & os) const;
+
 		std::string	_name;
-		t_ui		_hit;
-		t_ui		_energy;
+		t_ui		_hitPoint;
+		t_ui		_energyPoint;
 		t_ui		_attackDamage;
 
 		static t_ui _initHit;
