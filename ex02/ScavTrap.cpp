@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 20:42:47 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/27 23:36:37 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:54:53 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,21 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
 
 ScavTrap::ScavTrap(ScavTrap const & toCopy) : ClapTrap(toCopy)
 {
-	std::cout << CYAN "ScavTrap copy constructor called" RESET << *this << std::endl;
+	std::cout << CYAN "ScavTrap copy constructor called " RESET << *this << std::endl;
 }
 
 /* destructor ----------------------------------------------------------------*/
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << BLUE "ScavTrap default destructor called" RESET << *this << std::endl;
+	std::cout << BLUE "ScavTrap default destructor called " RESET << *this << std::endl;
 }
 
 /* operator ------------------------------------------------------------------*/
 
 ScavTrap & ScavTrap::operator = (ScavTrap const & toAssign)
 {
-	std::cout << PURPLE "ScavTrap copy assignment operator called" RESET << *this << std::endl;
+	std::cout << PURPLE "ScavTrap copy assignment operator called " RESET << *this << std::endl;
 	if (this == &toAssign)
 		return (*this);
 	ClapTrap::operator = (toAssign);

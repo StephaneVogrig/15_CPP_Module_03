@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 20:42:47 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/27 23:48:32 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:54:21 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,21 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30)
 
 FragTrap::FragTrap(FragTrap const & toCopy) : ClapTrap(toCopy)
 {
-	std::cout << CYAN "FragTrap copy constructor called" RESET << *this << std::endl;
+	std::cout << CYAN "FragTrap copy constructor called " RESET << *this << std::endl;
 }
 
 /* destructor ----------------------------------------------------------------*/
 
 FragTrap::~FragTrap(void)
 {
-	std::cout << BLUE "FragTrap default destructor called" RESET << *this << std::endl;
+	std::cout << BLUE "FragTrap default destructor called " RESET << *this << std::endl;
 }
 
 /* operator ------------------------------------------------------------------*/
 
 FragTrap & FragTrap::operator = (FragTrap const & toAssign)
 {
-	std::cout << PURPLE "FragTrap copy assignment operator called" RESET << *this << std::endl;
+	std::cout << PURPLE "FragTrap copy assignment operator called " RESET << *this << std::endl;
 	if (this == &toAssign)
 		return (*this);
 	ClapTrap::operator = (toAssign);
