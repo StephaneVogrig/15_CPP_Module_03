@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:26:42 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/26 22:35:16 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/01 19:15:44 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ void displaySection(std::string title)
 
 /* ***************************************************************************************** */
 
-void testClap_constructor(void)
+void testClapTrap_constructor(void)
 {
 	displaySubtest("default constructor");
 	ClapTrap trap;
 }
 
-void testClap_copy(void)
+void testClapTrap_copy(void)
 {
 	displaySubtest("copy constructor");
 
@@ -79,7 +79,7 @@ void testClapTrap_new(void)
 	delete heap;
 }
 
-void testClap_assignation(void)
+void testClapTrap_assignation(void)
 {
 	displaySubtest("assignation");
 	
@@ -130,11 +130,11 @@ void testClapTrap_hitPoint(void)
 
 void testClapTrap(void)
 {
-	testClap_constructor();
-	testClap_copy();
+	testClapTrap_constructor();
+	testClapTrap_copy();
 	testClapTrap_array();
 	testClapTrap_new();
-	testClap_assignation();
+	testClapTrap_assignation();
 	testClapTrap_energyPoint();
 	testClapTrap_hitPoint();
 }

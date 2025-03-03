@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:26:42 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/28 14:38:34 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/01 19:17:15 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ void displaySection(std::string title)
 
 /* ***************************************************************************************** */
 
-void testClap_constructor(void)
+void testClapTrap_constructor(void)
 {
 	displaySubtest("default constructor");
 	ClapTrap trap;
 }
 
-void testClap_copy(void)
+void testClapTrap_copy(void)
 {
 	displaySubtest("copy constructor");
 
@@ -79,7 +79,7 @@ void testClapTrap_new(void)
 	delete heap;
 }
 
-void testClap_assignation(void)
+void testClapTrap_assignation(void)
 {
 	displaySubtest("assignation");
 
@@ -130,24 +130,24 @@ void testClapTrap_hitPoint(void)
 
 void testClapTrap(void)
 {
-	testClap_constructor();
-	testClap_copy();
+	testClapTrap_constructor();
+	testClapTrap_copy();
 	testClapTrap_array();
 	testClapTrap_new();
-	testClap_assignation();
+	testClapTrap_assignation();
 	testClapTrap_energyPoint();
 	testClapTrap_hitPoint();
 }
 
 /* ***************************************************************************************** */
 
-void testScav_constructor(void)
+void testScavTrap_constructor(void)
 {
 	displaySubtest("default constructor");
 	ScavTrap trap;
 }
 
-void testScav_copy(void)
+void testScavTrap_copy(void)
 {
 	displaySubtest("copy constructor");
 
@@ -181,7 +181,7 @@ void testScavTrap_new(void)
 	delete heap;
 }
 
-void testScav_assignation(void)
+void testScavTrap_assignation(void)
 {
 	displaySubtest("assignation");
 
@@ -269,11 +269,11 @@ void testScavTrap_virtual(void)
 
 void testScavTrap(void)
 {
-	testScav_constructor();
-	testScav_copy();
+	testScavTrap_constructor();
+	testScavTrap_copy();
 	testScavTrap_array();
 	testScavTrap_new();
-	testScav_assignation();
+	testScavTrap_assignation();
 	testScavTrap_energyPoint();
 	testScavTrap_hitPoint();
 	testScavTrap_utilities();
@@ -392,13 +392,13 @@ void testFragTrap(void)
 
 /* ***************************************************************************************** */
 
-void testDiamond_constructor(void)
+void testDiamondTrap_constructor(void)
 {
 	displaySubtest("default constructor");
 	DiamondTrap trap;
 }
 
-void testDiamond_copy(void)
+void testDiamondTrap_copy(void)
 {
 	displaySubtest("copy constructor");
 
@@ -523,8 +523,8 @@ void testDiamondTrap_virtual(void)
 
 void testDiamondTrap(void)
 {
-	testDiamond_constructor();
-	testDiamond_copy();
+	testDiamondTrap_constructor();
+	testDiamondTrap_copy();
 	testDiamondTrap_array();
 	testDiamondTrap_new();
 	testDiamondTrap_assignation();
