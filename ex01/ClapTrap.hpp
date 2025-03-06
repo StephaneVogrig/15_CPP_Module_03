@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:26:59 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/27 23:31:20 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/06 12:24:25 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class ClapTrap
 		ClapTrap(std::string name = "no_name");
 		ClapTrap(ClapTrap const & toCopy);
 
-		virtual ~ClapTrap(void);
+		~ClapTrap(void);
 
 		ClapTrap & operator = (ClapTrap const & toAssign);
 
@@ -49,7 +49,7 @@ class ClapTrap
 		t_ui		getEnergyPoint(void) const;
 		t_ui		getAttackDamage(void) const;
 
-		virtual void attack(const std::string& target);
+		void attack(const std::string& target);
 		void takeDamage(t_ui amount);
 		void beRepaired(t_ui amount);
 
