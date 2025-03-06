@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:23:44 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 23:47:08 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/06 22:12:19 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class FragTrap : virtual public ClapTrap
 		FragTrap(std::string name = "no_name");
 		FragTrap(FragTrap const & toCopy);
 
-		virtual ~FragTrap(void);
+		~FragTrap(void);
 
 		FragTrap & operator = (FragTrap const & toAssign);
 
@@ -30,9 +30,9 @@ class FragTrap : virtual public ClapTrap
 
 	protected:
 
-		static t_ui _initHit;
-		static t_ui _initEnergy;
-		static t_ui _initAttackDamage;
+		static const t_ui _initHit = 100;
+		static const t_ui _initEnergy = 100;
+		static const t_ui _initAttackDamage = 30;
 		
 };
 

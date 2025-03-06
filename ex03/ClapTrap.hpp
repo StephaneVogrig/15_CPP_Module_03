@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:26:59 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/28 14:37:27 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/06 21:53:15 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,16 @@ class ClapTrap
 		ClapTrap(std::string name = "no_name");
 		ClapTrap(ClapTrap const & toCopy);
 
-		virtual ~ClapTrap(void);
+		~ClapTrap(void);
 
 		ClapTrap & operator = (ClapTrap const & toAssign);
-		friend std::ostream & operator << (std::ostream & os, ClapTrap const & obj);
 
 		std::string	getName(void) const;
 		t_ui		getHitPoint(void) const;
 		t_ui		getEnergyPoint(void) const;
 		t_ui		getAttackDamage(void) const;
 
-		virtual void attack(const std::string& target);
+		void attack(const std::string& target);
 		void takeDamage(t_ui amount);
 		void beRepaired(t_ui amount);
 
@@ -58,17 +57,17 @@ class ClapTrap
 
 		ClapTrap(std::string name, t_ui hit, t_ui energy, t_ui attackDamage);
 
-		virtual void display(std::ostream & os) const;
-
 		std::string	_name;
 		t_ui		_hitPoint;
 		t_ui		_energyPoint;
 		t_ui		_attackDamage;
 
-		static t_ui _initHit;
-		static t_ui _initEnergy;
-		static t_ui _initAttackDamage;
+		static const t_ui _initHit = 10;
+		static const t_ui _initEnergy = 10;
+		static const t_ui _initAttackDamage = 0;
 
 };
+
+std::ostream & operator << (std::ostream & os, ClapTrap const & obj);
 
 #endif

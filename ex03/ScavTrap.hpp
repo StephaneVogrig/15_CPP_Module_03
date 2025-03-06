@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 20:43:20 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/24 23:23:09 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/06 22:12:34 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ScavTrap : virtual public ClapTrap
 		ScavTrap(std::string name = "no_name");
 		ScavTrap(ScavTrap const & toCopy);
 
-		virtual ~ScavTrap(void);
+		~ScavTrap(void);
 
 		ScavTrap & operator = (ScavTrap const & toAssign);
 
@@ -32,9 +32,9 @@ class ScavTrap : virtual public ClapTrap
 
 	protected:
 
-		static t_ui _initHit;
-		static t_ui _initEnergy;
-		static t_ui _initAttackDamage;
+		static const t_ui _initHit = 100;
+		static const t_ui _initEnergy = 50;
+		static const t_ui _initAttackDamage = 20;
 
 };
 

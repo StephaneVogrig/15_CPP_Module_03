@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 21:16:39 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/28 13:15:10 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/06 22:53:44 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,16 @@ class DiamondTrap : public ScavTrap, public FragTrap
 
 		DiamondTrap & operator = (DiamondTrap const & toAssign);
 
+		std::string	getName(void) const;
+
 		void whoAmI(void); 
 
 	private:
 
-		void display(std::ostream & os) const;
-
 		std::string _name;
 
 };
+
+std::ostream & operator << (std::ostream & os, DiamondTrap const & obj);
 
 #endif
