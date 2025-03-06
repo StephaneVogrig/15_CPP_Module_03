@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:26:42 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/01 19:18:26 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/06 18:37:54 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,8 @@ void testClapTrap_hitPoint(void)
 
 void testClapTrap(void)
 {
+	displaySection("test ClapTrap");
+
 	testClapTrap_constructor();
 	testClapTrap_copy();
 	testClapTrap_array();
@@ -210,6 +212,7 @@ void testScavTrap_energyPoint(void)
 {
 	displaySubtest("energy");
 	ScavTrap trap("myScav");
+	trap.guardGate();
 	t_ui energy = trap.getEnergyPoint();
 	t_ui i = 0;
 	while (i++ < energy / 2)
@@ -218,58 +221,26 @@ void testScavTrap_energyPoint(void)
 		trap.attack("someone");
 	trap.beRepaired(1);
 	trap.attack("someone");
+	trap.guardGate();
 }
 
 void testScavTrap_hitPoint(void)
 {
 	displaySubtest("hit");
 	ScavTrap trap("myScav");
+	trap.guardGate();
 	trap.takeDamage(1);
 	trap.takeDamage(5);
 	trap.takeDamage(200);
 	trap.beRepaired(20);
 	trap.attack("aStranger");
-}
-
-void testScavTrap_utilities(void)
-{
-	displaySubtest("utilities");
-	ScavTrap trap("myScav");
 	trap.guardGate();
-}
-
-void testScavTrap_virtual(void)
-{
-	displaySubtest("virtual");
-	ClapTrap clap("clap");
-	ScavTrap scav("scav");
-
-	std::cout << std::endl;
-	std::cout << YELLOW "pointer" RESET << std::endl;
-	ClapTrap * clapPtr = &clap;
-	ClapTrap * scavPtr = &scav;
-
-	std::cout << std::endl;
-	clapPtr->attack("someone");
-	scavPtr->attack("someone");
-
-	std::cout << std::endl;
-	std::cout << YELLOW "reference" RESET << std::endl;
-	ClapTrap & clapRef = clap;
-	ClapTrap & scavRef = scav;
-
-	std::cout << std::endl;
-	clapRef.attack("someone");
-	scavRef.attack("someone");
-
-	std::cout << std::endl;
-	clapRef.ClapTrap::attack("someone");
-	scavRef.ClapTrap::attack("someone");
-
 }
 
 void testScavTrap(void)
 {
+	displaySection("test ScavTrap");
+
 	testScavTrap_constructor();
 	testScavTrap_copy();
 	testScavTrap_array();
@@ -277,8 +248,6 @@ void testScavTrap(void)
 	testScavTrap_assignation();
 	testScavTrap_energyPoint();
 	testScavTrap_hitPoint();
-	testScavTrap_utilities();
-	testScavTrap_virtual();
 }
 
 /* ***************************************************************************************** */
@@ -351,6 +320,7 @@ void testFragTrap_energyPoint(void)
 {
 	displaySubtest("energy");
 	FragTrap trap("myFrag");
+	trap.highFiveGuys();
 	t_ui energy = trap.getEnergyPoint();
 	t_ui i = 0;
 	while (i++ < energy / 2)
@@ -359,28 +329,26 @@ void testFragTrap_energyPoint(void)
 		trap.attack("someone");
 	trap.beRepaired(1);
 	trap.attack("someone");
+	trap.highFiveGuys();
 }
 
 void testFragTrap_hitPoint(void)
 {
 	displaySubtest("hit");
 	FragTrap trap("myFrag");
+	trap.highFiveGuys();
 	trap.takeDamage(1);
 	trap.takeDamage(5);
 	trap.takeDamage(200);
 	trap.beRepaired(20);
 	trap.attack("aStranger");
-}
-
-void testFragTrap_utilities(void)
-{
-	displaySubtest("utilities");
-	FragTrap trap("myFrag");
 	trap.highFiveGuys();
 }
 
 void testFragTrap(void)
 {
+	displaySection("test FragTrap");
+
 	testFragTrap_constructor();
 	testFragTrap_copy();
 	testFragTrap_array();
@@ -388,21 +356,14 @@ void testFragTrap(void)
 	testFragTrap_assignation();
 	testFragTrap_energyPoint();
 	testFragTrap_hitPoint();
-	testFragTrap_utilities();
 }
 
 /* ***************************************************************************************** */
 
 int main(void)
 {
-	displaySection("test ClapTrap");
 	testClapTrap();
-
-	displaySection("test ScavTrap");
 	testScavTrap();
-
-	displaySection("test FragTrap");
 	testFragTrap();
-
 	return (EXIT_SUCCESS);
 }

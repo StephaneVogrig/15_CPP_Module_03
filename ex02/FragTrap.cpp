@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 20:42:47 by svogrig           #+#    #+#             */
-/*   Updated: 2025/02/28 11:54:21 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/06 13:14:16 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,5 @@ void FragTrap::highFiveGuys(void)
 		return ;
 	}
 	std::cout << YELLOW_BLINK "FragTrap " RESET;
-	std::cout << _name << YELLOW_BLINK " high five done " RESET << *this << std::endl;
+	std::cout << _name << YELLOW_BLINK " request a high five " RESET << *this << std::endl;
 }
